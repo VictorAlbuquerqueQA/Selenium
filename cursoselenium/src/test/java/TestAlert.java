@@ -18,6 +18,7 @@ public class TestAlert {
         Assert.assertEquals("Alert Simples", texto);
         alert.accept();
         driver.findElement(By.id("elementosForm:nome")).sendKeys(texto);
+        driver.quit();
     }
 
     @Test
@@ -38,5 +39,22 @@ public class TestAlert {
         alerta.dismiss();
         Assert.assertEquals("Negado", alerta.getText());
         alerta.dismiss();
+        driver.quit();
+    }
+    @Test
+    public void AlertPrompt(){
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().setSize(new Dimension(1200, 765));
+        driver.get("D:\\Aulas\\Selenium\\campo_treinamento\\componentes.html");
+        driver.findElement(By.id("prompt")).click();
+        Alert alerta = driver.switchTo().alert();
+        Assert.assertEquals("Digite um numero", alerta.getText());
+        alerta.sendKeys("12");
+        alerta.accept();
+        Assert.assertEquals("Era 12?", alerta.getText());
+        alerta.accept();
+        Assert.assertEquals(":D", alerta.getText());
+        alerta.accept();
+        driver.quit();
     }
 }

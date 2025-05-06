@@ -221,7 +221,7 @@ public class TesteCampos {
         driver.get("D:\\Aulas\\Selenium\\campo_treinamento\\componentes.html");
         driver.findElement(By.linkText("Voltar")).click();
         Assert.assertEquals("Voltou!", driver.findElement(By.id("resultado")).getText());
-        //driver.quit();
+        driver.quit();
     }
 
     @Test
@@ -234,6 +234,6 @@ public class TesteCampos {
         //Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("Campo de Treinamento"));
         Assert.assertEquals("Campo de Treinamento", driver.findElement(By.tagName("h3")).getText());
         Assert.assertEquals("Cuidado onde clica, muitas armadilhas...", driver.findElement(By.className("facilAchar")).getText());
-        //driver.quit();
+        driver.quit();
     }
 }
